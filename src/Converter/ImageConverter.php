@@ -16,10 +16,10 @@ class ImageConverter implements ConverterInterface
 
         if ($title !== '') {
             // No newlines added. <img> should be in a block-level element.
-            return '![' . $alt . '](' . $src . ' "' . $title . '")';
+            return ' ![' . $alt . '](' . $src . ' "' . $title . '") ';
         }
 
-        return '![' . $alt . '](' . $src . ')';
+        return ' ![' . $alt . '](' . $src . ') ';
     }
 
     /**
