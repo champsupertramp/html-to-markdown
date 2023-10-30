@@ -56,8 +56,8 @@ class EmphasisConverter implements ConverterInterface, ConfigurationAwareInterfa
          * the start or end $style, respectively. This prevents <em>foo</em><em>bar</em> from
          * being converted to *foo**bar* which is incorrect. We want *foobar* instead.
          */
-        $preStyle  = $this->getNormTag($element->getPreviousSibling()) === $tag ? '' : $style;
-        $postStyle = $this->getNormTag($element->getNextSibling()) === $tag ? '' : $style;
+        $preStyle  = '<strong>'; //$this->getNormTag($element->getPreviousSibling()) === $tag ? '' : $style;
+        $postStyle = '</strong>'; //$this->getNormTag($element->getNextSibling()) === $tag ? '' : $style;
 
         return $prefix . $preStyle . \trim($value) . $postStyle . $suffix;
     }
