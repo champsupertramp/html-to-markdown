@@ -15,6 +15,11 @@ class CodeConverter implements ConverterInterface
         // Checking for language class on the code block
         $classes = $element->getAttribute('class');
 
+        $parent = $element->getParent();
+        if ( empty( $classes ) ) {
+            $classes = $parent->getAttribute('class');
+        }
+
         if ($classes) {
             // Since tags can have more than one class, we need to find the one that starts with 'language-'
             $classes = \explode(' ', $classes);
